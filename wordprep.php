@@ -20,7 +20,10 @@ add_theme_support( 'title-tag' );
 // <meta name="generator">, RSS <generator>, etc.
 add_filter( 'the_generator', '__return_false' );
 
-// Turn off X-Pingback (contrary to popular belief, "xmlrpc_enabled" doesn't)
+/* Turn off X-Pingback. Turns out "xmlrpc_enabled" doesn't: 
+ * https://core.trac.wordpress.org/browser/trunk/src/wp-includes/class-wp-xmlrpc-server.php#L252
+ * "Contrary to the way it's named, this filter does not control whether XML-RPC is *fully* enabled"
+ */
 add_filter( 'pings_open', '__return_false' );
 
 // <link rel="EditURI" type="application/rsd+xml">
